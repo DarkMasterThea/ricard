@@ -1,0 +1,65 @@
+<body>
+<div class="main">
+  <h1>Servicios</h1>
+  <div class="filter">
+    <mat-chip-list
+      class="example-chip"
+      cdkDropList
+      cdkDropListOrientation="horizontal"
+    >
+      <mat-chip
+        class="example-box"
+        cdkDrag
+        *ngFor="let filter of filters" (click)="filterFunction(filter.type)">
+        {{filter.name}}
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+  <div class="card">
+    <div class="card-left">
+      <ng-container *ngFor="let card of cardsShow">
+        <mat-card class="example-card">
+          <mat-card-title>{{card.title}}</mat-card-title>
+          <mat-card-content>
+            <p>{{card.text}}</p>
+          </mat-card-content>
+          <mat-card-actions class="card-button">
+            <button mat-button>Editar</button>
+            <button mat-button>Eliminar</button>
+          </mat-card-actions>
+        </mat-card>
+      </ng-container>
+
+    </div>
+
+    <div class="card-right">
+      <div class="card-login">
+        <div class="box">
+          <h2>Servicio</h2>
+          <form class="example-form">
+            <h3>Nombre</h3>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <input matInput placeholder="" name="titles"
+                     [(ngModel)] ="titles">
+            </mat-form-field>
+            <h3>Descripción</h3>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <input matInput placeholder="" value="" name="password" type="text" [(ngModel)]= "text">
+            </mat-form-field>
+            <h3>Type</h3>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <input matInput placeholder="" value="" name="type" type="type" [(ngModel)]= "type">
+            </mat-form-field>
+          </form>
+        </div>
+        <div class="button-style">
+          <button mat-raised-button color="primary" (click)="submit()">Grabar</button>
+          <button mat-raised-button color="warn" (click)="clear()">Cancelar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
